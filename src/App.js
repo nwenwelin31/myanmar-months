@@ -2,21 +2,22 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom/cjs/rea
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MonthDetail from './MonthDetail';
+import Home from './Home';
 
 function App() {
   return (
     <Router>
-    <div className="container">
+    <div>
       <Navbar/>
       <div>
         <Switch>
-            {/* <Route exact path='/'>
+            <Route exact path='/'>
                 <Home/>
-            </Route> */}
+            </Route>
             {/* <Route path='/birdList'>
                <MonthDetail />
             </Route> */}
-      
+
             <Route path='/months/:id'>
                 <MonthDetail/>
             </Route>
