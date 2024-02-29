@@ -4,7 +4,7 @@ import useFetch from './useFetch';
 
 
 const Navbar = () => {
-  const { data: months } = useFetch("http://localhost:8001/Tbl_Months");
+  const { data: months } = useFetch("http://localhost:8000/Tbl_Months");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -26,13 +26,13 @@ const Navbar = () => {
           </div>
         </div>
         {months.map(month => (
-            
+
             <li key={month.id}>
             <Link to={`/months/${month.id}`}>
                     {month.MonthMm}
                 </Link>
             </li>
-            
+
         ))}
         {/* <li><Link to="#home">Home</Link></li>
         <li><Link to="#about">About</Link></li> */}
@@ -48,7 +48,7 @@ const Navbar = () => {
         <span className="hamb-bottom"></span>
       </button>
       <div className="container">
-        {/* <img src={monthsHome} alt='months cover'/> */}
+
       </div>
     </div>
   </div>
