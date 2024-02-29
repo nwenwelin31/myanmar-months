@@ -22,7 +22,7 @@ const Navbar = () => {
       <ul className="nav sidebar-nav">
         <div className="sidebar-header">
           <div className="sidebar-brand">
-            <Link to="#">Months</Link>
+            <Link to="#">မြန်မာလများ</Link>
           </div>
         </div>
         {months.map(month => (
