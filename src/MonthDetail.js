@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetch from "./useFetch";
-import { IoIosArrowForward } from "react-icons/io";
+import { FaArrowCircleLeft } from "react-icons/fa";
+
 
 const MonthDetail = () => {
   const { id } = useParams();
@@ -28,7 +29,7 @@ const MonthDetail = () => {
               </h5>
             </div>
             <Link to="/" className=''>
-              <IoIosArrowForward size={60} style={{ color: 'black' }} />
+              <FaArrowCircleLeft  size={40} style={{ color: 'black' }} />
             </Link>
           </div>
 

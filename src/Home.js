@@ -9,7 +9,8 @@ const Home = () => {
   const { data: months } = useFetch("https://json-server-snowy-pi.vercel.app/Months");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(4); // 3 columns * 4 rows
+  const [itemsPerPage] = useState(4); // 4 columns * 3 rows
+
 
   if (months === null) {
     return <div>Loading...</div>;
@@ -28,7 +29,10 @@ const Home = () => {
   
   return (
     <div className="home">
-    <h1>မြန်မာလ အသေးစိတ်များ</h1>
+    <h2>မြန်မာလ အသေးစိတ်များ</h2>
+    <div className='card moving-text-container mb-3 ms-4 shadow' data-aos="zoom-in">
+      <p className='moving-text pt-2 textlight' style={{ whiteSpace: 'nowrap' }}>ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသည် အရှေ့တောင်အာရှတွင် ယဉ်ကျေးမှုအထွန်းကားဆုံးသော နိုင်ငံတစ်နိုင်ငံဖြစ်ပါသည်။ ရှေးခေတ်မြန်မာတို့၏ ဘာသာရေး၊ လူမှုရေး၊ နိုင်ငံရေး၊ ပညာရေးစသည်တို့ကို အခြေခံ၍ ပေါ်ပေါက်လာသော "ဆယ့်နှစ်လရာသီ ရိုးရာပွဲတော်များ" ကို မြန်မာပြက္ခဒိန်ဖြင့် သတ်မှတ်လေ့ရှိသည်။ အဆိုပါပွဲတော်များသည် မြန်မာလူမျိုးတို့ နှစ်ပေါင်း (၁၀ဝဝ)နီးပါး အစဉ်အဆက်ထိန်းသိမ်းလာခဲ့သော ရိုးရာယဉ်ကျေးမှု ဓလေ့ထုံးတမ်းများလည်း ဖြစ်သည်။ ယဉ်ကျေးမှုပွဲတော်များ ကျင်းပခြင်းဖြင့် စွယ်စုံပညာရှင်များ ပေါ်ထွန်းလာစေနိုင်ခြင်း၊ ဘာသာသာသနာထွန်းကားပြန့်ပွားလာစေခြင်း၊ နိုင်ငံတော် တိုးတက်သာယာစေခြင်း စသည့်အကျိုးကျေးဇူးများကိုရရှိစေနိုင်ပါသည်။</p>
+    </div>
       <div className="col-12">
         <div className="d-flex">
         {/* loop for month image */}
@@ -51,7 +55,7 @@ const Home = () => {
         }
           
         </div>
-        <div className="pagination d-flex justify-content-center mt-3">
+        <div className="pagination d-flex justify-content-center m-4">
           {[...Array(Math.ceil(months.length / itemsPerPage)).keys()].map(
             (number) => (
               <div
@@ -59,7 +63,9 @@ const Home = () => {
                 onClick={() => paginate(number + 1)}
                 className="mx-1"
               >
-                <FaRegCircle style={{ color: 'orange' }} />
+                <FaRegCircle  key={number}
+                  onClick={() => paginate(number + 1)}
+                 style={{ color:"orange" }} />
               </div>
             )
           )}

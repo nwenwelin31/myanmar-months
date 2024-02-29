@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MonthDetail from './MonthDetail';
 import Home from './Home';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             </Route> */}
         </Switch>
       </div>
+      <Footer />
   </div>
 </Router>
   );
