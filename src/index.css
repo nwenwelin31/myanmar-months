@@ -351,9 +351,7 @@ display: block;
   height: 100%; /* Make the image fill its container */
   object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
 }
-/* .home{
-  padding-left: 10%;
-} */
+
 .home h1{
   margin-bottom: 5%;
 }

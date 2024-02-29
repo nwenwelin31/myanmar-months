@@ -47,9 +47,9 @@ const Navbar = () => {
         <span className="hamb-middle"></span>
         <span className="hamb-bottom"></span>
       </button>
-      <div className="container">
+      {/* <div className="container">
 
-      </div>
+      </div> */}
     </div>
   </div>
   )
