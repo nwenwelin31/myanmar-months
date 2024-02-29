@@ -6,7 +6,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Home = () => {
   //fetch months data
-  const { data: months } = useFetch("http://localhost:8000/Tbl_Months");
+  const { data: months } = useFetch("https://json-server-snowy-pi.vercel.app/Months");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(3); // 3 columns * 4 rows
