@@ -46,7 +46,7 @@ const Home = () => {
             </div>
                 {/* month name on image */}
                 <div className="position-absolute bottom-50 start-50 translate-middle-x text-center text-white">
-                  <h4>{month.MonthMm}</h4>
+                  <label>{month.MonthMm}</label>
                 </div>
             </div>
             </Link>
