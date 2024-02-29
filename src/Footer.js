@@ -8,7 +8,7 @@ import { TfiGoogle } from "react-icons/tfi";
 const Footer = () => {
   return (
     <div style={{
-        
+        // position: 'fixed',
         bottom: 0,
         width: '100%',
         padding: '20px',
