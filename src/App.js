@@ -11,9 +11,9 @@ function App() {
       <Navbar/>
       <div>
         <Switch>
-            {/* <Route exact path='/'>
+            <Route exact path='/'>
                 <Home/>
-            </Route> */}
+            </Route>
             <Route path='/months/:id'>
                 <MonthDetail/>
             </Route>
