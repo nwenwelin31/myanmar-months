@@ -363,7 +363,7 @@ display: block;
 .moving-text-container {
   width: 100%;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .moving-text {
   animation: moveRightToLeft 25s linear infinite; /* Adjust duration and timing function as needed */
