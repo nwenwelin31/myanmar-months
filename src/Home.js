@@ -6,7 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Home = () => {
   //fetch months data
-  const { data: months } = useFetch("http://localhost:8000/Tbl_Months");
+  const { data: months } = useFetch("https://json-server-snowy-pi.vercel.app/Months");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);

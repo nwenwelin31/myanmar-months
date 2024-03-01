@@ -10,7 +10,7 @@ const MonthDetail = () => {
     data: month,
     error,
     isPending,
-  } = useFetch("http://localhost:8000/Tbl_Months/" + id);
+  } = useFetch("https://json-server-snowy-pi.vercel.app/Months/" + id);
 
   return (
     <div className="mx-5">
