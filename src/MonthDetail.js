@@ -38,25 +38,14 @@ const MonthDetail = () => {
               <img
                 src={`${process.env.PUBLIC_URL}/${month.DetailImagePath}`}
                 alt="monthPhoto" data-aos="zoom-in" data-aos-delay="500"
-                className="img-fluid rounded" style={{ height: '18rem', width: '30rem' }}
+                className="img-fluid rounded" style={{ height: '20%', width: '100%' }}
               />
               <p className="mt-4">{month.Description}</p>
             </div>
             <div className="col-md-6">
-            {month.Detail.length > 10 ? (
-                <div>
+           
                   <p className="mt-4">{month.Detail}</p>
-                </div>
-              ) : (
-                <div>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/${month.DetailImagePath}`}
-                    alt="monthPhoto"
-                    className="img-fluid rounded"
-                  />
-                  <p className="">{month.Detail}</p>
-                </div>
-              )}
+              
             </div>
           </div>
 

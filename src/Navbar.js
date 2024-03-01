@@ -16,11 +16,9 @@ const Navbar = () => {
   }
   return (
     <div id="wrapper" className={isSidebarOpen ? 'toggled' : ''}>
-    <div className="overlay"></div>
-
     {/* Sidebar */}
     <nav className="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-      <ul className="nav sidebar-nav">
+      <div className="nav sidebar-nav">
         <div className="sidebar-header">
           <div className="sidebar-brand">
             <Link to="/" onClick={toggleSidebar} >မြန်မာလများ</Link>
@@ -28,17 +26,17 @@ const Navbar = () => {
         </div>
         {months.map(month => (
 
-            <li key={month.id} onClick={toggleSidebar}>
+            <label key={month.id} onClick={toggleSidebar}>
             <Link to={`/months/${month.id}`}> 
                     {month.MonthMm}
                 </Link>
-            </li>
+            </label>
 
         ))}
         {/* <li><Link to="#home">Home</Link></li>
         <li><Link to="#about">About</Link></li> */}
         {/* Add more sidebar links here */}
-      </ul>
+      </div>
     </nav>
 
     {/* Page Content */}

@@ -21,7 +21,7 @@ const Footer = () => {
         <TiSocialFacebook size={30} className='m-1'/>
         <FaTwitter size={20} className='m-1' />
         <FaWifi size={20} className='m-1'/>
-        <TfiGoogle size={15}  />
+        <TfiGoogle size={18}  />
 
         </div>
         <span>@Copyright All rights reserved</span>

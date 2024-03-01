@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <div className="home">
       <h2 data-aos="slide-down" data-aos-delay="1000">
-        မြန်မာလ အသေးစိတ်များ
+      မြန်မာလအလိုက် သိမှတ်ဖွယ်ရာများ
       </h2>
       <div
         className="card moving-text-container mb-3 shadow"
