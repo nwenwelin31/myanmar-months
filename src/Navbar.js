@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import useFetch from './useFetch';
 
@@ -10,6 +10,7 @@ const Navbar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
   if (months === null) {
     return <div>Loading...</div>;
   }
@@ -22,13 +23,13 @@ const Navbar = () => {
       <ul className="nav sidebar-nav">
         <div className="sidebar-header">
           <div className="sidebar-brand">
-            <Link to="#">မြန်မာလများ</Link>
+            <Link to="/" onClick={toggleSidebar} >မြန်မာလများ</Link>
           </div>
         </div>
         {months.map(month => (
 
-            <li key={month.id}>
-            <Link to={`/months/${month.id}`}>
+            <li key={month.id} onClick={toggleSidebar}>
+            <Link to={`/months/${month.id}`}> 
                     {month.MonthMm}
                 </Link>
             </li>
@@ -47,7 +48,7 @@ const Navbar = () => {
         <span className="hamb-middle"></span>
         <span className="hamb-bottom"></span>
       </button>
-      {/* <div className="container">
+      {/* <div onChange={toggleSidebar}>
 
       </div> */}
     </div>

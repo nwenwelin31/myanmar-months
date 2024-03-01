@@ -368,7 +368,14 @@ display: block;
 .moving-text {
   animation: moveRightToLeft 25s linear infinite; /* Adjust duration and timing function as needed */
 }
-
+/* back arrow */
+.arrow-container {
+  position: fixed;
+  top: 19%;
+  left: 83%;
+  transform: translateY(-50%);
+  z-index: 1000; /* Adjust as needed */
+}
 
 /*-------------------------------*/
 /*            Overlay            */

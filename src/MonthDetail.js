@@ -28,9 +28,9 @@ const MonthDetail = () => {
                 {month.FestivalMm}({month.FestivalEn})
               </h5>
             </div>
-            <Link to="/" className=''>
+            {/* <Link to="/" className="position-fixed start-50">
               <FaArrowCircleLeft  size={40} style={{ color: 'black' }} />
-            </Link>
+            </Link> */}
           </div>
 
           <div className="row">
@@ -61,6 +61,12 @@ const MonthDetail = () => {
           </div>
 
           {/* <button onClick={handleClick}>Delete</button> */}
+          {/* Arrow Container */}
+          <div className="arrow-container">
+            <Link to="/">
+              <FaArrowCircleLeft size={40} style={{ color: 'black' }} />
+            </Link>
+          </div>
         </div>
       )}
     </div>

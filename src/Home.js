@@ -46,18 +46,7 @@ const Home = () => {
   };
   const startIdx = (currentPage - 1) * itemsPerPage;
   const visibleMonths = months.slice(startIdx, startIdx + itemsPerPage);
-  // Calculate indexes of items to display on current page
-  //  const indexOfLastItem = currentPage * itemsPerPage;
-  //  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-  // Slice the array only if it is not null
-  // const currentMonths = months.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Function to handle pagination button click
-  // const paginate = (pageNumber) => {
-  //   setCurrentPage(pageNumber);
-  //   setActivePage(pageNumber); // Update active page
-  // };
+  
   //resposive function
   // const responsive = {
   //   desktop: {
