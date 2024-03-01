@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="nav sidebar-nav">
         <div className="sidebar-header">
           <div className="sidebar-brand">
-            <Link to="/" onClick={toggleSidebar} >မြန်မာလများ</Link>
+            <Link to="/" onClick={toggleSidebar} >မြန်မာ ဆယ့်နှစ်လရာသီ</Link>
           </div>
         </div>
         {months.map(month => (
