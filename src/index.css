@@ -235,8 +235,8 @@ position: fixed;
 top: 20px;
 z-index: 999;
 display: block;
-width: 32px;
-height: 32px;
+width: 30px;
+height: 30px;
 margin-left: 15px;
 background: transparent;
 border: none;
@@ -371,7 +371,7 @@ display: block;
 /* back arrow */
 .arrow-container {
   position: fixed;
-  top: 19%;
+  top: 15%;
   left: 83%;
   transform: translateY(-50%);
   z-index: 1000; /* Adjust as needed */
