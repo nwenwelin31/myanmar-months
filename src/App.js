@@ -4,8 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MonthDetail from './MonthDetail';
 import Home from './Home';
 import Footer from './Footer';
+//importing aos animation
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+  
   return (
     <Router>
     <div>

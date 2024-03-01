@@ -10,7 +10,7 @@ const MonthDetail = () => {
     data: month,
     error,
     isPending,
-  } = useFetch("https://json-server-snowy-pi.vercel.app/Months/" + id);
+  } = useFetch("http://localhost:8000/Tbl_Months/" + id);
 
   return (
     <div className="mx-5">
@@ -20,10 +20,10 @@ const MonthDetail = () => {
       {month && (
         <div>
           <div className="d-flex justify-content-between">
-            <div data-aos="zoom-in">
+            <div>
               <h2>
                 {month.MonthMm}({month.MonthEn})
-              </h2>
+              </h2><br/>
               <h5>
                 {month.FestivalMm}({month.FestivalEn})
               </h5>
@@ -36,9 +36,9 @@ const MonthDetail = () => {
           <div className="row">
             <div className="col-md-6 mt-4">
               <img
-                src={`${process.env.PUBLIC_URL}/${month.ImagePath}`}
-                alt="monthPhoto"
-                className="img-fluid rounded" style={{ height: '20rem', width: '30rem' }}
+                src={`${process.env.PUBLIC_URL}/${month.DetailImagePath}`}
+                alt="monthPhoto" data-aos="zoom-in" data-aos-delay="500"
+                className="img-fluid rounded" style={{ height: '18rem', width: '30rem' }}
               />
               <p className="mt-4">{month.Description}</p>
             </div>
@@ -50,7 +50,7 @@ const MonthDetail = () => {
               ) : (
                 <div>
                   <img
-                    src={`${process.env.PUBLIC_URL}/${month.ImagePath}`}
+                    src={`${process.env.PUBLIC_URL}/${month.DetailImagePath}`}
                     alt="monthPhoto"
                     className="img-fluid rounded"
                   />
