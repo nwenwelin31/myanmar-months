@@ -1,36 +1,87 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "./useFetch";
 // import { FaRegCircle } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Home = () => {
   //fetch months data
   const { data: months } = useFetch("http://localhost:8000/Tbl_Months");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(4); // 4 columns * 3 rows
-  const [activePage, setActivePage] = useState(1); // Initialize active page
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+
+  useEffect(() => {
+    // screen responsive
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1015) {
+        setItemsPerPage(4);
+      } else if (screenWidth >= 768) {
+        setItemsPerPage(3);
+      } else if (screenWidth >= 580) {
+        setItemsPerPage(2);
+      } else {
+        setItemsPerPage(1);
+      }
+    };
+
+    handleResize(); // Set initial items per page based on screen width
+    window.addEventListener("resize", handleResize); // Listen for window resize
+    return () => window.removeEventListener("resize", handleResize); // Cleanup
+  }, []);
 
   if (months === null) {
     return <div>Loading...</div>;
   }
 
+  const handlePrevClick = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const totalPages = Math.ceil(months.length / itemsPerPage);
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const visibleMonths = months.slice(startIdx, startIdx + itemsPerPage);
   // Calculate indexes of items to display on current page
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  //  const indexOfLastItem = currentPage * itemsPerPage;
+  //  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
   // Slice the array only if it is not null
-  const currentMonths = months.slice(indexOfFirstItem, indexOfLastItem);
+  // const currentMonths = months.slice(indexOfFirstItem, indexOfLastItem);
 
   // Function to handle pagination button click
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    setActivePage(pageNumber); // Update active page
-  };
+  // const paginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  //   setActivePage(pageNumber); // Update active page
+  // };
+  //resposive function
+  // const responsive = {
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 4,
+  //     slidesToSlide: 1 // optional, default to 1.
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 3,
+  //     slidesToSlide: 1 // optional, default to 1.
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1,
+  //     slidesToSlide: 1 // optional, default to 1.
+  //   }
+  // };
 
   return (
     <div className="home">
-      <h2 data-aos="slide-down" data-aos-delay="1000">မြန်မာလ အသေးစိတ်များ</h2>
+      <h2 data-aos="slide-down" data-aos-delay="1000">
+        မြန်မာလ အသေးစိတ်များ
+      </h2>
       <div
         className="card moving-text-container mb-3 shadow"
         data-aos="zoom-in"
@@ -52,10 +103,13 @@ const Home = () => {
         </p>
       </div>
       <div className="col-12">
-        <div className="d-flex">
-          {/* loop for month image */}
-          {currentMonths.map((month) => (
-            <Link to={`/months/${month.id}`} className="col m-1" key={month.id}>
+        <div className="row">
+          {visibleMonths.map((month) => (
+            <Link
+              to={`/months/${month.id}`}
+              className="col-lg-3 col-md-4 col-sm-6 align-center"
+              key={month.id}
+            >
               <div
                 className="card bg-warning"
                 style={{ height: "100%", overflow: "hidden" }}
@@ -81,33 +135,17 @@ const Home = () => {
 
         {/* carousel control */}
         <div className="pagination d-flex justify-content-center m-4">
-          {[...Array(Math.ceil(months.length / itemsPerPage)).keys()].map(
-            (number) => (
-              <div
-                key={number + 1}
-                onClick={() => paginate(number + 1)}
-                className='mx-1'
-                style={{
-                  backgroundColor:
-                    activePage === number + 1 ? "orange" : "transparent",
-                  border: `2px solid ${
-                    activePage === number + 1 ? "orange" : "transparent"
-                  }`,
-                  borderRadius: "50%", // Ensures the div is circular
-                  width: "30px",
-                  height: "30px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  cursor: "pointer",
-                }}
-              >
-                {/* <FaRegCircle
+          {/* Left arrow */}
+          <div onClick={handlePrevClick} style={{ cursor: "pointer" }}className="mx-1" >
+            <FaChevronLeft size={30}/>
+            
+            {/* <FaRegCircle
                  style={{ color: activePage === number + 1 ? "orange" : "orange" }} /> */}
-                {number + 1}
-              </div>
-            )
-          )}
+          </div>
+          {/* Right arrow */}
+          <div className="mx-1" onClick={handleNextClick} style={{ cursor: "pointer" }}>
+            <FaChevronRight size={30} />
+          </div>
         </div>
       </div>
     </div>
