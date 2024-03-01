@@ -19,19 +19,18 @@ const MonthDetail = () => {
 
       {month && (
         <div>
-          <div className="d-flex justify-content-between">
-            <div>
-              <h2>
+        {/* title */}
+          <div>
+              <h2 className="text-center">
                 {month.MonthMm}({month.MonthEn})
               </h2><br/>
-              <h5>
+              <h5 className="text-center">
                 {month.FestivalMm}({month.FestivalEn})
               </h5>
             </div>
             {/* <Link to="/" className="position-fixed start-50">
               <FaArrowCircleLeft  size={40} style={{ color: 'black' }} />
             </Link> */}
-          </div>
 
           <div className="row">
             <div className="col-md-6 mt-4">
